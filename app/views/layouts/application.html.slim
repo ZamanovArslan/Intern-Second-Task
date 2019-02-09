@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title = @title
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = content_for :header
+  body
+    - if controller_name != 'home'
+      .container
+        = render 'layouts/alerts'
+        = yield
+    - else
+      .container-fluid
+        = render 'layouts/alerts'
+        = yield

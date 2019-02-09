@@ -1,0 +1,39 @@
+- content_for :header do
+  = javascript_include_tag 'home'
+  = stylesheet_link_tag 'home'
+.topnav
+  .row
+    .col
+      h3.name.d-inline Event List View
+      ul.list-inline.d-inline
+        li.list-inline-item
+          = link_to 'Все события', events_path, class: "thicc"
+    .col
+      .log-in
+        - if user_signed_in?
+          = link_to ' Выйти', destroy_user_session_path, :method => :delete, class: "btn btn-outline-danger mr-2"
+          = link_to ' Settings', edit_user_registration_path, class: "btn btn-outline-light"
+        - else
+          = link_to ' Войти', new_user_session_path, class: "btn thicc"
+          = link_to ' Зарегистрироваться', new_user_registration_path, class: "btn sign-up btn-outline     font-weight-light"
+.row
+  .col
+    .calendar.block
+      h4.title Calendar
+      #calendar1-wrapper1
+      span.calendar-demo-msg
+    .search.block
+      h4.title Search
+      label.form-control-label.hidden Name
+      form.form-inline.search-bar
+        = image_tag("baseline-search-24px")
+        input.form-control aria-label="Search" type="search" /
+        button.btn.btn-outline.mt-2 type="submit"  Search
+  .col
+    .selected-day-events.block
+      h4.title
+      .table-scroll-wrapper
+        table.table.events
+    .add-event.block
+      h4.title Add Event
+      = render 'events/form'

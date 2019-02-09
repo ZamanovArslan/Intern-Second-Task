@@ -1,0 +1,66 @@
+.name {
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  display: inline-block;
+  padding-right: 20px;
+}
+
+.topnav {
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.log-in {
+  float: right;
+}
+
+.thicc {
+  color: #fff;
+  font-weight: 600;
+}
+
+.sign-up {
+  font-weight: 400;
+}
+
+.calendar {
+  height: 648px;
+}
+
+.selected-day-events {
+}
+
+.selected-day-events .table-scroll-wrapper {
+  height: 250px;
+}
+
+.table-scroll-wrapper {
+  overflow-y: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.events-search .table-scroll-wrapper {
+  max-height: 132px;
+}
+
+
+.search {
+  //height: 200px;
+}
+
+.form-inline .form-control {
+  width: 85%;
+}
+
+.search-bar img {
+  width: 28px;
+  opacity: 0.4;
+  padding-right: 5px;
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
