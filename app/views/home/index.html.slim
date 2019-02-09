@@ -12,7 +12,8 @@
       .log-in
         - if user_signed_in?
           = link_to ' Выйти', destroy_user_session_path, :method => :delete, class: "btn btn-outline-danger mr-2"
-          = link_to ' Settings', edit_user_registration_path, class: "btn btn-outline-light"
+          = link_to edit_user_registration_path, class: "btn btn-outline-light" do
+            i.fas.fa-cog
         - else
           = link_to ' Войти', new_user_session_path, class: "btn thicc"
           = link_to ' Зарегистрироваться', new_user_registration_path, class: "btn sign-up btn-outline     font-weight-light"
@@ -26,7 +27,7 @@
       h4.title Search
       label.form-control-label.hidden Name
       form.form-inline.search-bar
-        = image_tag("baseline-search-24px")
+        i.fas.fa-search
         input.form-control aria-label="Search" type="search" /
         button.btn.btn-outline.mt-2 type="submit"  Search
   .col
