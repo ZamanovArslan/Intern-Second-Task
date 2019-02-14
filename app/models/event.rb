@@ -15,4 +15,8 @@ class Event < ApplicationRecord
                        regularity = 'y' AND Extract(DAY FROM date_event) = #{date.day} AND
                        Extract(MONTH FROM date_event) = #{date.month}));")
   end
+
+  def self.search(query, id)
+    Event.where('name_of_event LIKE ? AND user_id = ?', "%#{query}%", id)
+  end
 end

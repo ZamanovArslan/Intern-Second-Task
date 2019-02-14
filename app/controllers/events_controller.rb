@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 
   def index
     if params[:q]
-      render json: Event.where('name_of_event LIKE ? AND user_id = ?', "%#{params[:q]}%", current_user.id)
+      render json: Event.search(params[:q], current_user.id)
     elsif params[:date_event]
       render json: Event.is_available(Date.parse(params[:date_event]), current_user.id)
     end
