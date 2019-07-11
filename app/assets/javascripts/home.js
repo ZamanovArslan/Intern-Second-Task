@@ -46,8 +46,8 @@ $(document).ready(function () {
         /*
                 event_html += "<td class='time'>До " +  + "</td>";
         */
-        event_html += "<td class='time'><a href='/events/" + event["id"] + "/edit' class='btn btn-warning'>Изменить</a></td>";
-        event_html += "<td class='time'><a href='/events/" + event["id"] + "' data-method=\"delete\" data-confirm=\"Are you sure?\" class='btn btn-danger'>Удалить</a></td>";
+        event_html += "<td class='time'><a href='/events/" + event["id"] + "/edit' class='btn btn-outline-warning'>Изменить</a></td>";
+        event_html += "<td class='time'><a href='/events/" + event["id"] + "' data-method=\"delete\" data-confirm=\"Are you sure?\" class='btn btn-outline-danger'>Удалить</a></td>";
         event_html += "</tr>";
         if ($('.selected-day-events .events').not(':has(.event)')) {
             $(" .selected-day-events .events").append(event_html);

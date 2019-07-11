@@ -1,8 +1,9 @@
 body {
-  background: #bd7f66;
-  background: -moz-linear-gradient(left, #bd7f66 0%, #56423b 100%);
-  background: -webkit-linear-gradient(left, #bd7f66 0%, #56423b 100%);
-  background: linear-gradient(to right, #bd7f66 0%, #56423b 100%);
+  background: #355C7D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
   font-family: 'Open Sans', sans-serif;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bd7f66', endColorstr='#56423b', GradientType=1);
   color: #fff;
@@ -40,12 +41,12 @@ a {
   background: #0a0a0a2e;
   padding: 20px;
   margin-top: 10px;
-  margin-bottom: 10px;
-  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  -ms-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  -o-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 3px 0px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 3px 0px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -ms-box-shadow: 0 3px 0px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -o-box-shadow: 0 3px 0px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 0px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 
