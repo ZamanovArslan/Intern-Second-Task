@@ -2,13 +2,10 @@ body {
   background: #355C7D;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
   font-family: 'Open Sans', sans-serif;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bd7f66', endColorstr='#56423b', GradientType=1);
   color: #fff;
 }
-
 
 .text-muted {
   color: #fff !important;
@@ -31,7 +28,6 @@ a {
   vertical-align: middle;
 }
 
-
 .table {
   margin-bottom: 0;
 }
@@ -48,7 +44,6 @@ a {
   -o-box-shadow: 0 3px 0px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   box-shadow: 0 3px 0px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-
 
 .table td {
   border: none;
@@ -109,7 +104,8 @@ a {
 }
 
 label {
-  color: #191616;
+  color: #ececec;
+  font-weight: 700;
   margin-bottom: 0;
   margin-top: 0.5rem;
 }
@@ -136,7 +132,6 @@ label {
   background: #fff;
 }
 
-
 .time {
   font-family: 'Exo 2', sans-serif;
   font-weight: 600;
@@ -145,6 +140,9 @@ label {
 
 .name-of-event {
   font-size: 18px;
-  width: 497px;
-  text-transform: capitalize;
+  width: 450px;
+}
+
+.table a:not(.btn) {
+  text-decoration: none;
 }

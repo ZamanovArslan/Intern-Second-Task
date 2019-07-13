@@ -1,14 +1,45 @@
+import niceDatePicker from './nice-date-picker';
+import eventJst from './event.jst';
+
 $(document).ready(function () {
     let d = new Date();
     let strDate = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
+    let activeDate = strDate;
     getEventsByDate(strDate);
     new niceDatePicker({
         dom: document.getElementById('calendar1-wrapper1'),
         onClickDate: function (date) {
             getEventsByDate(date);
+            changeDateInForm(date);
+            activeDate = date;
         },
         mode: 'en'
     });
+
+    $("#new_event")
+        .on("ajax:success", addEvent)
+        .on("ajax:error", showError);
+
+    $(document)
+        .on("ajax:complete", "a[data-event-id]", deleteEvent);
+
+    function deleteEvent() {
+        $("tr[data-event-id='" + $(this).data("event-id") + "']").fadeOut()
+    }
+
+    function addEvent(data) {
+        let event = data["detail"][0];
+        console.log(event);
+        let date1 = new Date(activeDate).toDateString();
+        let date2 = new Date(event["date_event"]).toDateString();
+        if (date1 === date2) {
+            printEvent(event)
+        }
+    }
+
+    function showError(error) {
+        console.log(error);
+    }
 
     function getEventsByDate(date) {
         $(".selected-day-events .title").text(date);
@@ -40,40 +71,13 @@ $(document).ready(function () {
     }
 
     function printEvent(event) {
-        let event_html = "<tr class='event'>";
-        event_html += "<td class='name-of-event'> <a href='events/" + event["id"] + "'>" + event["name_of_event"] + "</a></td>";
-        event_html += "<td class='time'>" + getTime(event["start_of_event"]) + " - " + getTime(event["end_of_event"]) + "</td>";
-        /*
-                event_html += "<td class='time'>До " +  + "</td>";
-        */
-        event_html += "<td class='time'><a href='/events/" + event["id"] + "/edit' class='btn btn-outline-warning'>Изменить</a></td>";
-        event_html += "<td class='time'><a href='/events/" + event["id"] + "' data-method=\"delete\" data-confirm=\"Are you sure?\" class='btn btn-outline-danger'>Удалить</a></td>";
-        event_html += "</tr>";
+        let event_html = jst('event', event);
         if ($('.selected-day-events .events').not(':has(.event)')) {
             $(" .selected-day-events .events").append(event_html);
         } else {
             $(" .selected-day-events .events .event:last-child").after(event_html);
         }
     }
-
-    function getTime(times) {
-        if (times == null) return "";
-        var time = new Date(times);
-        var todisplay = '';
-
-        if (time.getHours() < 10) todisplay += '0' + time.getHours();
-        else todisplay += time.getHours();
-
-        if (time.getMinutes() < 10) todisplay += ':0' + time.getMinutes();
-        else todisplay += ':' + time.getMinutes();
-
-        return todisplay;
-    }
-
-    $(".search-bar button").click(function () {
-        event.preventDefault();
-        getEventsByQuery($(".search-bar input").val())
-    });
 
     function getEventsByQuery(query) {
         $.ajax({
@@ -98,14 +102,9 @@ $(document).ready(function () {
     }
 
     function printSearchEvents(events) {
-        $(".god-thanks").remove();
-        if ($(".events-search").length === 0) {
-            $('.add-event').after("<div class = 'block events-search'><div class='table-scroll-wrapper'><table class = 'table events'></table></div></div>")
-        } else {
-            $(".events-search .events").find(".event").remove();
-        }
+        addSearchBlock();
         if (events.length === 0) {
-            $(".events-search").append("<p class='text-center font-weight-light font-italic god-thanks pt-2'>Тут ничего.</p>")
+            $(".events-search").append(jst('no-results'))
         }
         $(events).each(function (index, event) {
             printSearchEvent(event);
@@ -113,15 +112,55 @@ $(document).ready(function () {
     }
 
     function printSearchEvent(event) {
-        let event_html = "<tr class='event'>";
-        event_html += "<td class='name-of-event'>" + event["name_of_event"] + "</td>";
-        event_html += "<td class='time'>" + event["date_event"] + "</td>";
-        event_html += "<td class='time'>" + getTime(event["start_of_event"]) + " - " + getTime(event["end_of_event"]) + "</td>";
-        event_html += "</tr>";
+        let event_html = jst('search-event', event);
         if ($('.events-search .events').not(':has(.event)')) {
             $(".events-search .events").append(event_html);
         } else {
             $(".events-search .events .event:last-child").after(event_html);
         }
+    }
+
+    $(".search-bar button").click(function () {
+        event.preventDefault();
+        getEventsByQuery($(".search-bar input").val())
+    });
+
+    function addSearchBlock() {
+        $(".god-thanks").remove();
+        if ($(".events-search").length === 0) {
+            $('.add-event').after(jst('search-block'))
+        } else {
+            $(".events-search .events").find(".event").remove();
+        }
+    }
+
+    function changeDateInForm(date) {
+        $("#event_date_event").val(formatDate(date))
+    }
+
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
+    function getTime(times) {
+        if (times == null) return "";
+        var time = new Date(times);
+        var todisplay = '';
+
+        if (time.getHours() < 10) todisplay += '0' + time.getHours();
+        else todisplay += time.getHours();
+
+        if (time.getMinutes() < 10) todisplay += ':0' + time.getMinutes();
+        else todisplay += ':' + time.getMinutes();
+
+        return todisplay;
     }
 });

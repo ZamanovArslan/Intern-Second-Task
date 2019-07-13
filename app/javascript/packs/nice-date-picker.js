@@ -208,21 +208,23 @@
             }
             if ($target.classList.contains('nice-normal')) {
                 $(".nice-clicked").removeClass("nice-clicked");
-                $target.classList.add("nice-clicked");
+                if (!$target.classList.contains('nice-current')) {
+                    $target.classList.add("nice-clicked");
+                }
                 $params.onClickDate($target.getAttribute('data-date'));
 
             }
         }, false);
         this.$warpper.addEventListener('mouseover', function (e) {
             var $target = e.target;
-            if ($target.classList.contains('nice-normal')) {
+            if ($target.classList.contains('nice-normal') && !$target.classList.contains('nice-current')) {
 
                 $target.classList.add('nice-active');
             }
         }, false);
         this.$warpper.addEventListener('mouseout', function (e) {
             var $target = e.target;
-            if ($target.classList.contains('nice-normal')) {
+            if ($target.classList.contains('nice-normal') && !$target.classList.contains('nice-current')) {
 
                 $target.classList.remove('nice-active');
             }

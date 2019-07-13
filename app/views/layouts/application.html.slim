@@ -6,13 +6,14 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application'
+    = stylesheet_pack_tag 'application'
     = content_for :header
   body
-    - if controller_name != 'home'
-      .container
-        = render 'layouts/alerts'
-        = yield
-    - else
-      .container-fluid
-        = render 'layouts/alerts'
+    .container-fluid
+      = render 'layouts/header'
+      - if controller_name != 'home'
+        .container
+          = yield
+      - else
         = yield

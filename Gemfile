@@ -7,19 +7,24 @@ ruby '2.5.3'
 
 # frontend
 gem 'bootstrap', '~> 4.2.1'
+gem 'bootswatch'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
+gem 'webpacker', '~> 4.x'
+
 
 # backend
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'cancancan', '~> 2.0'
 gem 'decent_exposure', '3.0.0'
 gem 'devise'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1'
+
 gem 'simple_form'
 
 gem 'bootsnap', '>= 1.1.0', require: false

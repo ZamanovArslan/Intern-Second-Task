@@ -1,0 +1,17 @@
+= render 'layouts/alerts'
+.topnav
+  .row
+    .col
+      h3.name.d-inline = link_to 'Event List View', root_path
+      ul.list-inline.d-inline
+        li.list-inline-item
+          = link_to 'Все события', events_path, class: "thicc"
+    .col
+      .log-in
+        - if user_signed_in?
+          = link_to ' Выйти', destroy_user_session_path, :method => :delete, class: "btn btn-danger mr-2"
+          = link_to edit_user_registration_path, class: "btn btn-outline-light" do
+            i.fas.fa-cog
+        - else
+          = link_to ' Войти', new_user_session_path, class: "btn thicc"
+          = link_to ' Зарегистрироваться', new_user_registration_path, class: "btn sign-up btn-outline     font-weight-light"

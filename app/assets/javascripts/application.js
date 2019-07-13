@@ -14,5 +14,3 @@
 //= require popper
 //= require bootstrap
 //= require rails-ujs
-//= require turbolinks
-//= require nice-date-picker

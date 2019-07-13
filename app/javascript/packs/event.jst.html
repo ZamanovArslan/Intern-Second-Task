@@ -1,0 +1,29 @@
+<template name="event" params="event">
+    <tr class='event' data-event-id="<%= event['id'] %>">
+        <td class='name-of-event'><a href="events/<%= event['id'] %> "> <%= event["name_of_event"] %> </a></td>
+        <td class='time'><%= event["start_of_event"] || "..." %> - <%= event["end_of_event"] || "..." %></td>
+        <td class='time'><a href='/events/<%= event["id"] %>/edit' class='btn btn-outline-warning'>Изменить</a></td>
+        <td class='time'><a href='/api/v1/events/<%= event["id"] %>' data-method="delete" data-confirm="Are you sure?"
+                            class='btn btn-outline-danger' data-remote="true"  data-event-id="<%= event['id'] %>">Удалить</a></td>
+    </tr>
+</template>
+
+<template name="search-block">
+    <div class='block events-search'>
+        <div class='table-scroll-wrapper'>
+            <table class='table events'></table>
+        </div>
+    </div>
+</template>
+
+<template name="no-results">
+    <p class='text-center font-weight-light font-italic god-thanks pt-2'>Тут ничего.</p>
+</template>
+
+<template name="search-event" params="event">
+    <tr class='event'>
+        <td class='name-of-event'><%= event["name_of_event"] %></td>
+        <td class='time'><%= event["date_event"] %></td>
+        <td class='time'><%= event["start_of_event"] || "..." %> - <%= event["end_of_event"] || "..." %></td>
+    </tr>
+</template>
