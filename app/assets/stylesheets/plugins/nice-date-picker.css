@@ -97,6 +97,7 @@
 .nice-date-picker-body tr .nice-active {
     background: #15131369;
 }
+
 .nice-date-picker-body tr .nice-clicked {
     background: rgba(0, 0, 0, 0.41);
 }
