@@ -1,6 +1,7 @@
 class UserDecorator < Draper::Decorator
   delegate_all
 
+
   def available_events(date_event)
     date = Date.parse(date_event)
     # Если событие повторяется единожды, то нужно только чтобы переданная дата и дата события были равны, иначе
@@ -17,7 +18,7 @@ class UserDecorator < Draper::Decorator
   end
 
   def search(query)
-    events.where("name_of_event LIKE ?", "%#{query}%")
+    events.search_everywhere(query)
   end
 
   def events_by_params(params)

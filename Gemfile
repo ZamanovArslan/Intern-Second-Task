@@ -23,6 +23,7 @@ gem "decent_exposure", "3.0.0"
 gem "devise"
 gem "draper"
 gem "pg", ">= 0.18", "< 2.0"
+gem "pg_search"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.1"
 
