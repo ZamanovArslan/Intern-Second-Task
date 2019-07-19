@@ -2,7 +2,7 @@
   h3 = event.name_of_event
   h5 = event.date_event
   .font-weight-light.pb-4
-    = event.start_of_event.strftime("%H:%M") if event.start_of_event
+    = event.start_of_event&.strftime("%H:%M")
     = " - " if event.end_of_event && event.start_of_event
-    = event.end_of_event.strftime("%H:%M") if event.end_of_event
-  = link_to 'Edit', edit_event_path(event), class: "btn btn-outline"
+    = event.end_of_event&.strftime("%H:%M")
+  = link_to "Edit", edit_event_path(event), class: "btn btn-outline"

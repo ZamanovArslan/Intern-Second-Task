@@ -1,17 +1,9 @@
 class EventsController < ApplicationController
-  before_action only: [:show, :edit, :update, :destroy]
+  before_action only: %i[show edit update destroy]
   before_action :authenticate_user!
 
-  expose :events, -> {Event.all}
+  expose :events, -> { current_user.events }
   expose :event
-
-  def index
-    if params[:q]
-      render json: Event.search(params[:q], current_user.id)
-    elsif params[:date_event]
-      render json: Event.is_available(Date.parse(params[:date_event]), current_user.id)
-    end
-  end
 
   def create
     event.user_id = current_user.id

@@ -1,9 +1,11 @@
+@import "variables";
+
 .name {
-  color: #fff;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
   display: inline-block;
   padding-right: 20px;
+  color: $text-color;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
 }
 
 .topnav {
@@ -16,7 +18,8 @@
 }
 
 .thicc {
-  color: #fff;
+  padding-top: 10px;
+  color: $text-color;
   font-weight: 600;
 }
 
@@ -28,11 +31,17 @@
   height: 648px;
 }
 
-.selected-day-events {
-}
-
 .selected-day-events .table-scroll-wrapper {
   height: 250px;
+}
+
+.alert {
+  position: absolute;
+  right: 0;
+  left: 0;
+  width: 30%;
+  margin: 0 auto;
+  z-index: 999;
 }
 
 .table-scroll-wrapper {
@@ -55,12 +64,12 @@
 
 .search-bar i {
   width: 25px;
-  opacity: 0.4;
   padding-right: 5px;
+  opacity: .4;
 }
 
 .title {
-  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
 }

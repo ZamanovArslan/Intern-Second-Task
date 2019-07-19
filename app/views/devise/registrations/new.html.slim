@@ -12,7 +12,11 @@
         .col
           = f.input :patronymic, required: false, autofocus: true
       = f.input :email, required: true, autofocus: true, input_html: {autocomplete: "email"}
-      = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: {autocomplete: "newpassword"}
+      = f.input :password, required: true,
+              hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+              input_html: {autocomplete: "newpassword"}
+
       = f.input :password_confirmation, required: true, input_html: {autocomplete: "newpassword"}
     .form-actions
       = f.button :submit, "Sign up", class: "btn btn-outline"
+    = render "devise/shared/links"

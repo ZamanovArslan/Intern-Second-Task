@@ -1,4 +1,10 @@
-- if !notice.nil?
-    p.notice= notice
-- if !alert.nil?
-    p.alert= alert
+- unless notice.nil?
+  .alert.alert-dismissible.alert-success.fade.show
+    = notice
+    button.close aria-label="Close" data-dismiss="alert" type="button"
+      span aria-hidden="true"  &times;
+- unless alert.nil?
+  .alert.alert-dismissible.alert-danger.fade.show
+    = alert
+    button.close aria-label="Close" data-dismiss="alert" type="button"
+      span aria-hidden="true"  &times;

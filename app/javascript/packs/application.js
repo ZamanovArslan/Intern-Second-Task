@@ -14,5 +14,5 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import home from './home'
-console.log('Hello World from Webpacker')
+import home from "./home"
+console.log("Hello World from Webpacker");

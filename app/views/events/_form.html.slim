@@ -4,29 +4,30 @@
   .form-inputs
     .row
       .col
-        = f.input :name_of_event, required: true, input_html: {class: ""}, label: 'Название мероприятия', placeholder: "Погулять с собакой"
+        = f.input :name_of_event, required: true, input_html: { class: "" },
+                label: "Event title", placeholder: "Walk with dog"
       .col
-        = f.input :date_event, as: :string, input_html: {type: "date"}, required: true
+        = f.input :date_event, as: :string, input_html: { type: "date" }, required: true
     .row
       .col
         .row
           .col
             .form-group
-              label.form-control-label for = "event_start_of_event" Начало мероприятия
+              label.form-control-label for = "event_start_of_event" Start of event
               input.form-control name="event[start_of_event]" type="time"
           .col
             .form-group
-              label.form-control-label for = "event_end_of_event" Конец мероприятия
+              label.form-control-label for = "event_end_of_event" End of event
               input.form-control name = "event[end_of_event]" type = "time"
       .col
         .form-group
-          label.form-control-label for = "event_regularity" Повторять
+          label.form-control-label for = "event_regularity" Regularity
           select.form-control.custom-select name = "event[regularity]"
-            option value = "o" Один раз
-            option value = "d" Каждый день
-            option value = "w" Каждую неделю
-            option value = "m" Каждый месяц
-            option value = "y" Каждый год
+            option value = "o" Once
+            option value = "d" Every day
+            option value = "w" Every week
+            option value = "m" Every month
+            option value = "y" Every year
 
   .form-actions
     = f.button :submit, class: "btn-outline"

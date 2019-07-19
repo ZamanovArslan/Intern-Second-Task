@@ -3,8 +3,12 @@ module Api
     class EventsController < ApplicationController
       before_action :authenticate_user!
 
-      expose :events, -> {Event.all}
+      expose :events, -> { current_user.events }
       expose :event
+
+      def index
+        render json: current_user.decorate.events_by_params(params)
+      end
 
       def create
         event.user_id = current_user.id

@@ -1,0 +1,10 @@
+$bg: #355c7d;
+$text-color: #fff;
+
+@mixin mixin-box-shadow($property) {
+  -moz-box-shadow: $property;
+  -ms-box-shadow: $property;
+  -o-box-shadow: $property;
+  -webkit-box-shadow: $property;
+  box-shadow: $property;
+}
