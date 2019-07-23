@@ -13,11 +13,20 @@ describe "User" do
   end
 
   context "with valid credentials" do
-
     it "can sign in" do
       sign_in(user.email, user.password)
 
       expect(page).to have_content("Signed in successfully")
+    end
+  end
+
+  context "when on homepage" do
+    it "can sign out" do
+      sign_in(user.email, user.password)
+
+      click_link "Sign out"
+
+      expect(page).to have_content("Signed out successfully")
     end
   end
 end

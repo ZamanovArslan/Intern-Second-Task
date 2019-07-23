@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.5.3"
 
 # frontend
-gem "bootstrap", "~> 4.2.1"
+gem "bootstrap", ">= 4.3.1"
 gem "bootswatch"
 gem "coffee-rails", "~> 4.2"
 gem "jquery-rails"
