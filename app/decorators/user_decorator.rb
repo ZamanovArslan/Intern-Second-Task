@@ -1,7 +1,6 @@
 class UserDecorator < Draper::Decorator
   delegate_all
 
-
   def available_events(date_event)
     date = Date.parse(date_event)
     # Если событие повторяется единожды, то нужно только чтобы переданная дата и дата события были равны, иначе

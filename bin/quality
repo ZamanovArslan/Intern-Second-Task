@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+set -e
+
+bin/rubocop --display-style-guide
+
+bin/scss-lint
+bin/slim-lint app/views
+
+bin/bundle-audit update
+bin/bundle-audit

@@ -1,7 +1,7 @@
 ENV["RAILS_ENV"] ||= "test"
 
 require "spec_helper"
-require File.expand_path("../../config/environment", __FILE__)
+require File.expand_path("../config/environment", __dir__)
 require "rspec/rails"
 require "support/factory_bot"
 
@@ -15,9 +15,7 @@ RSpec.configure do |config|
 
   config.include Capybara::DSL
 
-  Capybara.configure do |config|
-    config.default_driver = :selenium_chrome_headless
-  end
+  Capybara.default_driver = :selenium_chrome_headless
   #
   # config.before(:each, type: :feature) do
   #   Capybara.current_session.driver.browser.manage.window.resize_to(2_500, 2_500)

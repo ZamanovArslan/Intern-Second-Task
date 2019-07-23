@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
 
   expose :events, -> { current_user.events.decorate }
-  expose :event, decorate: ->(event){ EventDecorator.new(event) }
+  expose :event, decorate: ->(event) { EventDecorator.new(event) }
 
   def create
     event.user_id = current_user.id
