@@ -1,14 +1,14 @@
 class EventsController < ApplicationController
-  before_action only: %i[show edit update destroy]
+  before_action only: %i[edit update destroy]
   before_action :authenticate_user!
 
-  expose :events, -> { current_user.events }
-  expose :event
+  expose :events, -> { current_user.events.decorate }
+  expose :event, decorate: ->(event){ EventDecorator.new(event) }
 
   def create
     event.user_id = current_user.id
     if event.save
-      redirect_to event
+      redirect_to events_path
     else
       render :new
     end
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
 
   def update
     if event.update(event_params)
-      redirect_to event_path(event)
+      redirect_to events_path
     else
       render :edit
     end
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
 
   def destroy
     event.destroy
-    redirect_to root_path
+    redirect_to events_path
   end
 
   private

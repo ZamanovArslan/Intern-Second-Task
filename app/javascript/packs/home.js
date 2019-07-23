@@ -114,6 +114,12 @@ $(document).ready(function () {
         })
     }
 
+    function addSearchBlock() {
+        if ($(".events-search").length === 0) {
+            $('.add-event').after(jst("search-block"))
+        }
+    }
+    
     function printSearchEvent(event) {
         let event_html = jst("search-event", event);
         $(".events-search .events").append(event_html);
@@ -124,11 +130,6 @@ $(document).ready(function () {
         getEventsByQuery($(".search-bar input").val())
     });
 
-    function addSearchBlock() {
-        if ($(".events-search").length === 0) {
-            $('.add-event').after(jst("search-block"))
-        }
-    }
 
     function changeDateInForm(date) {
         $("#event_date_event").val(formatDate(date))

@@ -1,7 +1,9 @@
 .row
   .col
     .calendar.block
-      h4.title Calendar
+      h4.title
+        = "Calendar"
+        .float-right = current_user.email
       #calendar1-wrapper1
       span.calendar-demo-msg
     .search.block

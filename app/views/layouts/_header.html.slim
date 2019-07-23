@@ -3,6 +3,7 @@
     .col
       h3.name.d-inline = link_to "Event List View", root_path
       ul.list-inline.d-inline
+      - if user_signed_in?
         li.list-inline-item
           = link_to "My events", events_path, class: "thicc"
     .col

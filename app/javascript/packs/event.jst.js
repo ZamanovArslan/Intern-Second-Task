@@ -1,6 +1,6 @@
 (function() {
 
-"use strict";
+'use strict';
 
 var hasGlobal = typeof global !== 'undefined',
     glob = hasGlobal ? global : window,
@@ -643,21 +643,27 @@ if(!hasGlobal) {
 /* --- app/javascript/packs/event.jst.html --- */
 jst._tmpl['event'] = function(event) {
     var __jst = '';
-    __jst += '<tr class=\'event\' data-event-id="' + filter.html(event['id']) + '"> <td class=\'name-of-event\'><a href="events/' + filter.html(event['id']) + '">' + filter.html(event["name_of_event"]) + '</a></td> <td class=\'time\'>' + filter.html(event["start_of_event"] || "...") + '-' + filter.html(event["end_of_event"] || "...") + '</td> <td class=\'time\'><a href=\'/events/' + filter.html(event["id"]) + '/edit\' class=\'btn btn-outline-warning\'>Edit</a></td> <td class=\'time\'><a href=\'/api/v1/events/' + filter.html(event["id"]) + '\' data-method="delete" data-confirm="Are you sure?" class=\'btn btn-outline-danger\' data-remote="true" data-event-id="' + filter.html(event['id']) + '">Delete</a></td> </tr>';
+    __jst += '<tr class="event" data-event-id="' + filter.html(event['id']) + '"> <td class="name-of-event">' + filter.html(event["name_of_event"]) + '</td> <td class="time">' + filter.html(event["start_of_event"] || "...") + '-' + filter.html(event["end_of_event"] || "...") + '</td> <td class="time"><a href=\'/events/' + filter.html(event["id"]) + '/edit\' class="btn btn-outline-warning">Edit</a></td> <td class="time"><a href=\'/api/v1/events/' + filter.html(event["id"]) + '\' data-method="delete" data-confirm="Are you sure?" class="btn btn-outline-danger" data-remote="true" data-event-id="' + filter.html(event['id']) + '">Delete</a></td> </tr>';
 
     return __jst;
 };
-jst._tmpl['search-block'] = '<div class=\'block events-search\'> <div class=\'table-scroll-wrapper\'> <table class=\'table events\'></table> </div> </div>';
-jst._tmpl['no-results'] = '<p class=\'text-center font-weight-light font-italic god-thanks pt-2\'>Nothing</p>';
+jst._tmpl['search-block'] = '<div class="block events-search"> <div class="table-scroll-wrapper"> <table class="table events"></table> </div> </div>';
+jst._tmpl['no-results'] = '<p class="text-center font-weight-light font-italic god-thanks pt-2">Nothing</p>';
 jst._tmpl['search-event'] = function(event) {
     var __jst = '';
-    __jst += '<tr class=\'event\'> <td class=\'name-of-event\'>' + filter.html(event["name_of_event"]) + '</td> <td class=\'time\'>' + filter.html(event["date_event"]) + '</td> <td class=\'time\'>' + filter.html(event["start_of_event"] || "...") + '-' + filter.html(event["end_of_event"] || "...") + '</td> </tr>';
+    __jst += '<tr class="event" data-event-id="' + filter.html(event['id']) + '"> <td class="name-of-event">' + filter.html(event["name_of_event"]) + '</td> <td class="time">' + filter.html(event["date_event"]) + '</td> <td class="time">' + filter.html(event["start_of_event"] || "...") + '-' + filter.html(event["end_of_event"] || "...") + '</td> <td class="time"><a href=\'/events/' + filter.html(event["id"]) + '/edit\' class="btn btn-outline-warning">Edit</a></td> <td class="time"><a href=\'/api/v1/events/' + filter.html(event["id"]) + '\' data-method="delete" data-confirm="Are you sure?" class="btn btn-outline-danger" data-remote="true" data-event-id="' + filter.html(event['id']) + '">Delete</a></td> </tr>';
 
     return __jst;
 };
 jst._tmpl['alert-success'] = function(message) {
     var __jst = '';
     __jst += '<div class="alert alert-dismissible alert-success fade show">' + filter.html(message) + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div>';
+
+    return __jst;
+};
+jst._tmpl['alert-danger'] = function(message) {
+    var __jst = '';
+    __jst += '<div class="alert alert-dismissible alert-danger fade show">' + filter.html(message) + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div>';
 
     return __jst;
 };

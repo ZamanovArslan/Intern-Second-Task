@@ -27,12 +27,10 @@ gem "pg_search"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.1"
 
-
 gem "bootsnap", ">= 1.1.0", require: false
 
 group :development do
   gem "listen", ">= 3.0.5", "< 3.2"
-  gem "scss_lint", require: false
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
@@ -42,4 +40,11 @@ group :test do
   gem "capybara", ">= 2.15"
   gem "chromedriver-helper"
   gem "selenium-webdriver"
+end
+
+group :test, :development do
+  gem "factory_bot_rails"
+  gem "ffaker"
+  gem "formulaic"
+  gem "rspec-rails", "~> 3.7"
 end
