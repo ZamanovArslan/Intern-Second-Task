@@ -1,4 +1,6 @@
 Rails.application.configure do
+  config.webpacker.check_yarn_integrity = true
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
