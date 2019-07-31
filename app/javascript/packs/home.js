@@ -1,5 +1,5 @@
 import niceDatePicker from "./nice-date-picker";
-import eventJst from "./event.jst";
+import "./event.jst";
 
 $(document).ready(function () {
     let date = new Date();
